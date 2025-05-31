@@ -10,16 +10,12 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        // Zakázání CSRF, pokud nechcete CSRF ochranu pro veřejné API
         http.csrf().disable()
-                // Povolení přístupu ke všem cestám bez autentifikace
                 .authorizeRequests()
-                .anyRequest().permitAll() // Povolit všechny požadavky
+                .anyRequest().permitAll()
                 .and()
-                // Volitelné: Zakázání přihlašovacího formuláře (pokud není potřeba)
                 .formLogin().disable()
-                .httpBasic().disable(); // Pokud chcete povolit i HTTP Basic autentifikaci, můžete ji nechat povolenou.
-
+                .httpBasic().disable();
         return http.build();
     }
 }

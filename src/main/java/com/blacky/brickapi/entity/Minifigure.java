@@ -9,7 +9,6 @@ import lombok.Setter;
 @Entity(name = "Minifigure")
 @Table(name = "minifigure")
 public class Minifigure {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
