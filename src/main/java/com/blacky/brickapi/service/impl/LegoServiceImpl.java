@@ -92,8 +92,6 @@ public class LegoServiceImpl implements LegoService {
                     }
                 });
             }
-
-            // Spuštění všech úloh paralelně
             tasks.forEach(virtualExecutor::execute);
         }
         // virtual multi-threading brickEconomy end
@@ -147,7 +145,7 @@ public class LegoServiceImpl implements LegoService {
                 .ignoreHttpErrors(true)
                 .userAgent("Chrome")
                 .get();
-        System.out.println("Zpracován set: " + set.getSetNumber() + " | URL: " + url);
+        System.out.println("Set: " + set.getSetNumber() + " | URL: " + url);
 
         // PRICING
         Element panelSetPricing = doc.getElementById("ContentPlaceHolder1_PanelSetPricing");
