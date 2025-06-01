@@ -6,7 +6,6 @@ import com.blacky.brickapi.service.LegoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -31,5 +30,4 @@ public class LegoPriceController {
     public List<LegoSetValuesDto> scrapRetiringSets()  {
         return legoService.scrapRetiringSets();
     }
-
 }

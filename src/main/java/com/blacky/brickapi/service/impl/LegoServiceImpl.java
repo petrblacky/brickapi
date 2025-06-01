@@ -21,7 +21,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
 
 @Slf4j
 @Service
@@ -75,7 +74,7 @@ public class LegoServiceImpl implements LegoService {
             }
             tasks.forEach(virtualExecutor::execute);
         }
-        // multi-threading lego.com end
+        // virtual multi-threading lego.com end
 
         // virtual multi-threading brickEconomy
         try (ExecutorService virtualExecutor = Executors.newVirtualThreadPerTaskExecutor()) {
@@ -128,7 +127,7 @@ public class LegoServiceImpl implements LegoService {
                     dto.setSalePrice(salePrice);
                 }
                 dto.setSetNumber(setNumber);
-                synchronized (products) { // ÚPRAVA: Synchronizace přístupu k seznamu
+                synchronized (products) {
                     dto.setLegoSetDto(getLegoSets(setNumber).getLast());
                     products.add(dto);
                 }
@@ -175,12 +174,6 @@ public class LegoServiceImpl implements LegoService {
                     }
                 }
             }
-        }
-
-        //PREDICTIONS
-        Element panelSetPredictions = doc.getElementById("ContentPlaceHolder1_PanelSetPredictions");
-        if (panelSetPredictions != null) {
-            
         }
     }
 
