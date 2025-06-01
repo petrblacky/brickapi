@@ -5,7 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -42,4 +43,7 @@ public class LegoSet {
 
     @Column(name = "last_updated")
     private LocalDateTime lastUpdated;
+
+    @OneToMany(mappedBy = "legoSet")
+    private List<LegoInventory> inventories = new ArrayList<>();
 }
